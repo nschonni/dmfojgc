@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Down for me, or just GC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <section id="urls">
+        <h2>
+            <span class="mw-headline" id="Social_networks">Social networks</span>
+        </h2>
+        <ul>
+            <li>
+                <a rel="nofollow" class="external text" href="http://www.facebook.com">Facebook</a>
+            </li>
+            <li>
+                <a rel="nofollow" class="external text" href="http://www.linkedin.com">LinkedIn</a>
+            </li>
+            <li>
+                <a rel="nofollow" class="external text" href="http://www.reddit.com">Reddit</a>
+            </li>
+            <li>
+                <a rel="nofollow" class="external text" href="http://www.plaxo.com">Plaxo</a>
+            </li>
+            <li>
+                <a rel="nofollow" class="external text" href="http://www.skype.com">Skype</a>
+            </li>
+            <li>
+                <a rel="nofollow" class="external text" href="http://www.twitter.com">Twitter</a>
+            </li>
+            <li>
+                <i>more?</i>
+            </li>
+        </ul>
+        <h2>
+            <span class="mw-headline" id="Webmail">Webmail</span>
+        </h2>
+        <ul>
+            <li>
+                <a rel="nofollow" class="external text" href="https://mail.google.com">Gmail</a>
+            </li>
+            <li>
+                <a rel="nofollow" class="external text" href="http://www.hotmail.com">Hotmail</a>
+            </li>
+            <li>
+                <a rel="nofollow" class="external text" href="http://mail.yahoo.com">Yahoo! mail</a>
+            </li>
+            <li>
+                <a rel="nofollow" class="external text" href="http://me.com">Mobile Me (Mac)</a>
+            </li>
+            <li>
+                <i>more?</i>
+            </li>
+        </ul>
+        <h2>
+            <span class="mw-headline" id="Social_content">Social content</span>
+        </h2>
+        <ul>
+            <li>
+                <a rel="nofollow" class="external text" href="http://www.YouTube.com">YouTube</a>
+            </li>
+            <li>
+                <a rel="nofollow" class="external text" href="http://www.vimeo.com">Vimeo</a>
+            </li>
+            <li>
+                <a rel="nofollow" class="external text" href="http://www.flickr.com">Flickr</a>
+            </li>
+            <li>
+                <a rel="nofollow" class="external text" href="http://www.blogger.com">Blogger</a> /
+                <a rel="nofollow" class="external text" href="http://www.blogspot.com">Blogspot-hosted blogs</a>
+            </li>
+            <li>
+                <a rel="nofollow" class="external text" href="http://www.wordpress.com">WordPress-hosted blogs</a>
+            </li>
+            <li>
+                <a rel="nofollow" class="external text" href="http://www.tumblr.com">Tumblr</a>
+            </li>
+            <li>
+                <a rel="nofollow" class="external text" href="http://www.posterous.com">Posterous</a>
+            </li>
+            <li>
+                <a rel="nofollow" class="external text" href="http://diigo.com">Diigo</a>&nbsp;(social bookmarking, highlights, sticky notes) </li>
+            <li>
+                <a rel="nofollow" class="external text" href="http://www.hootsuite.com">HootSuite</a> (social media dashboard - can view multiple streams) </li>
+            <li>
+                <a rel="nofollow" class="external text" href="http://www.netvibes.com">NetVibes</a> (social media dashboard) </li>
+            <li>
+                <i>more?</i>
+            </li>
+        </ul>
+        <h2>
+            <span class="mw-headline" id="Collaborative_Tools">Collaborative Tools</span>
+        </h2>
+        <ul>
+            <li>
+                <a rel="nofollow" class="external text" href="http://docs.google.com">Google Docs</a>
+            </li>
+            <li>
+                <a rel="nofollow" class="external text" href="http://www.slideshare.net">Slideshare</a>
+            </li>
+            <li>
+                <a rel="nofollow" class="external text" href="http://www.huddle.net/">Huddle</a>
+            </li>
+            <li>
+                <a rel="nofollow" class="external text" href="http://www.scribd.com/">Scribd</a>
+            </li>
+            <li>
+                <a rel="nofollow" class="external text" href="http://www.gotomeeting.com/">GoToMeeting</a>
+            </li>
+            <li>
+                <a rel="nofollow" class="external text" href="http://www.prezi.com">Prezi</a>
+            </li>
+            <li>
+                <i>more?</i>
+            </li>
+        </ul>
+    </section>
+    <script>
+        $('#urls').find('a').each(function () {
+            var link = $(this)
+            var url = link.attr('href');
+            var req = new XMLHttpRequest();
+            req.open('GET', url, false);
+            req.setRequestHeader('Access-Control-Allow-Headers', '*');
+            req.setRequestHeader('Content-type', 'application/ecmascript');
+            req.setRequestHeader('Access-Control-Allow-Origin', '*');
+            req.send();
+            var result = document.createElement("span")
+            if (req.responseText.indexOf('BLOCKED WEBPAGE') !== -1) {
+                result.innerHTML = ' &#x2717; Failed'
+            } else {
+                result.innerHTML = ' &#10003; Passed'
+            }
+            link.after(result)
+        });
+    </script>
+</body>
+
+</html>

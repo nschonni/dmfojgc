@@ -125,6 +125,7 @@
         $('#urls').find('a').each(function () {
             var link = $(this)
             var url = link.attr('href');
+            url = url.replace(/https?\:\/\//, 'https://')
             var req = new XMLHttpRequest();
             req.open('GET', url, false);
             req.setRequestHeader('Access-Control-Allow-Headers', '*');
